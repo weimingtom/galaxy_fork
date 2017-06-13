@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="scene-def.xsd"  
+	id="0" bgimg="girls.jpg" bgm="03.wma">
+   <!-- 贴张图 -->
+   <section id="0">
+       <img x="0" y="0" width="640" height="480">loli1.jpg</img>
+       <say speaker="某萝莉">
+	   你拍一，我拍一，春哥爷们打飞机
+	   </say>
+       <sound>sakura.mp3</sound>
+   </section>
+	<section id="1">
+		<img x="0" y="0" width="640" height="480">loli1.jpg</img>
+		<say speaker="某萝莉">
+			你拍二，我拍二，春哥有个长老二
+		</say>
+		<sound>sakura.mp3</sound>
+	</section>
+	<section id="2">
+		<img x="0" y="0" width="640" height="480">loli2.jpg</img>
+		<say speaker="某萝莉">
+			你拍三，我拍三，春哥JB能穿山
+		</say>
+		<sound>sakura.mp3</sound>
+	</section>
+	<section id="3">
+		<img x="0" y="0" width="640" height="480">loli2.jpg</img>
+		<say speaker="某萝莉">
+			你拍四，我拍四，春哥连牛都能日
+		</say>
+		<sound>sakura.mp3</sound>
+	</section>
+	<section id="4">
+		<img x="0" y="0" width="640" height="480">loli6.jpg</img>
+		<say speaker="某萝莉">
+			你拍五，我拍五，春哥一干到中午
+		</say>
+		<sound>sakura.mp3</sound>
+	</section>
+	<section id="5">
+		<img x="0" y="0" width="640" height="480">loli6.jpg</img>
+		<say speaker="某萝莉">
+			你拍六，我拍六，春哥日死老黄牛
+		</say>
+		<sound>sakura.mp3</sound>
+	</section>
+	<section id="6">
+       <gotoscene>scene0</gotoscene>
+   </section>
+</scene>

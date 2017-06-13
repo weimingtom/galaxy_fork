@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="scene-def.xsd"
+	id="0" bgimg="1.JPG" bgm="03.wma">
+	<!-- 贴张图 -->
+	<var-def name="life" type="int"/>
+	<section id="0" next-section="null">
+		
+		<say speaker="翠翠">
+			<select-title>
+				你对翠野鼠怎么看？
+			</select-title>
+			<select>
+				<item next-section="2" id="2">
+					好人
+				</item>
+				<item next-section="2" id="2">
+					坏人
+				</item>
+				<item next-section="3" id="3">
+					翠野鼠是什么东西？可以吃吗？
+				</item>
+			</select>
+		</say>
+		<var-oper target="life" oper="set" value="0" />
+	</section>
+	<section id="2" next-section="0">
+		<say speaker="翠翠">翠野鼠给你机会重新答一次</say>
+		<var-oper target="life" oper="dec" value="1"/>
+		<if left="life" comp="lt" right="0">
+			<tosection>4</tosection>
+		</if>
+	</section>
+	<section id="3" next-section="0">
+		<say speaker="翠翠">恭喜答对，得到翠野鼠嘴一个</say>
+		<var-oper target="life" oper="add" value="10"/>
+	</section>
+	<section id="4" next-section="0">
+		<say speaker="翠翠">变量值小于零</say>
+	</section>
+</scene>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--
+	<xs:simpleType id="imgType" name="imgType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="bust" />
+			<xs:enumeration value="fullscreen" />
+			<xs:enumeration value="middle" />
+		</xs:restriction>
+	</xs:simpleType>
+	-->
+	<xs:simpleType id="varOper" name="varOper">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="add" />
+			<xs:enumeration value="dec" />
+			<xs:enumeration value="set" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType id="compType" name="varType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="string" />
+			<xs:enumeration value="int" />
+			<xs:enumeration value="float" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType id="varType" name="compType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gt" />
+			<xs:enumeration value="lt" />
+			<xs:enumeration value="equal" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="scene">
+		<xs:complexType>
+			<xs:sequence>
+				<!--场景私有变量-->
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="var-def">
+					<xs:complexType>
+						<xs:attribute name="name" use="required"/>
+						<xs:attribute name="type" type="varType" default="int" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="1" maxOccurs="unbounded" name="section">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" name="gotoscene" type="xs:string" />
+							<xs:element minOccurs="0" maxOccurs="1" name="img">
+								<xs:complexType mixed="true">
+									<xs:sequence>
+										<xs:element minOccurs="0" maxOccurs="1" name="effect" type="xs:string" />
+										<xs:element minOccurs="0" maxOccurs="1" name="width" type="xs:unsignedByte" />
+										<xs:element minOccurs="0" maxOccurs="1" name="height" type="xs:unsignedByte" />
+										
+										<xs:element minOccurs="0" maxOccurs="1" name="x" type="xs:int" />
+										<xs:element minOccurs="0" maxOccurs="1" name="y" type="xs:int" />
+										<!--<xs:element minOccurs="0" maxOccurs="1" name="type" type="imgType" />-->
+									</xs:sequence>
+									<xs:attribute name="width" type="xs:int" use="optional" />
+									<xs:attribute name="height" type="xs:int" use="optional" />
+									<xs:attribute name="x" type="xs:int" use="optional" />
+									<xs:attribute name="y" type="xs:int" use="optional" />
+									<!--><xs:attribute name="type" type="imgType" /> -->
+									<xs:attribute name="effect" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="source" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="visiable" type="xs:boolean" use="optional" />
+									<xs:attribute name="bust" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="say">
+								<xs:complexType mixed="true">
+									<xs:sequence>
+										<xs:element minOccurs="0" maxOccurs="1" name="speaker" type="xs:string" />
+										<xs:element minOccurs="0" maxOccurs="1" name="select-title" type="xs:string" />
+										<xs:element minOccurs="0" maxOccurs="1" name="select">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="1" maxOccurs="unbounded" name="item">
+														<xs:complexType mixed="true">
+															<xs:sequence>
+																<xs:element minOccurs="0" maxOccurs="1" name="gotosection" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="next-section" type="xs:string" use="required" />
+															<xs:attribute name="id" type="xs:string" use="required" />
+														</xs:complexType>	
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="speaker" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="sound" type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="0" name="var-oper">
+								<xs:complexType>
+									<xs:attribute name="oper" type="varOper" default="set" />
+									<xs:attribute name="target" type="xs:string" use="required" />
+									<xs:attribute name="value" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="if">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="tosection" type="xs:string" minOccurs="1" maxOccurs="1" />
+									</xs:sequence>
+									<xs:attribute name="left" type="xs:string" use="required" />
+									<xs:attribute name="comp" type="compType" default="equal" />
+									<xs:attribute name="right" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:unsignedByte" use="required" />
+						<xs:attribute name="next-section" type="xs:string" use="required"/>
+						<!--<xs:attribute name="visiable" type="xs:boolean" use="optional" />-->
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:unsignedByte" use="required" />
+			<xs:attribute name="bgimg" type="xs:string" use="required" />
+			<xs:attribute name="bgm" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

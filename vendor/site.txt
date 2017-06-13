@@ -1,0 +1,2 @@
+﻿http://download.csdn.net/detail/aphx09/4098599
+基于Silverlight的小型Galgame

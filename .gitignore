@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+galaxy/bin/
+galaxy/obj/
+galaxywpf/bin/
+galaxywpf/obj/
+
+
 # User-specific files
 *.suo
 *.user

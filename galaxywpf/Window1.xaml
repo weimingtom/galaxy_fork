@@ -1,0 +1,10 @@
+<Window x:Class="galaxywpf.Window1"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="galaxywpf" Height="480" Width="640"
+	xmlns:game="clr-namespace:SilverlightApplication1"
+	>
+	<Grid>
+		<game:Game />
+	</Grid>
+</Window>

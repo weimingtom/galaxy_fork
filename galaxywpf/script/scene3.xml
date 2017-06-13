@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="scene-def.xsd"
+	id="0" bgimg="ai.JPG" bgm="03.wma">
+	<!-- 贴张图 -->
+	<section id="0" next-section="1">
+		<say speaker="爱">
+			君好像很忙呢，要不要犒劳一下？
+		</say>
+	</section>
+	<section id="1" next-section="null">
+		<say speaker="爱">
+			<select-title>
+				你喜欢我吗？
+			</select-title>
+			<select>
+				<item next-section="3" id="1">
+					是
+				</item>
+				<item next-section="2" id="2">
+					否
+				</item>
+			</select>
+		</say>
+	</section>
+	<section id="2" next-section="0">
+		<gotoscene>scene3</gotoscene>
+	</section>
+	<section id="3" next-section="0">
+		<say speaker="爱">真好</say>
+	</section>
+</scene>
